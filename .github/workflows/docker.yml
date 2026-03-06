@@ -1,4 +1,5 @@
 name: Build Relay Docker
+run-name: Build Docker Image
 
 on:
   push:

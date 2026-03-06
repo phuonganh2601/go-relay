@@ -2,9 +2,12 @@ FROM golang:1.22-alpine AS builder
 
 WORKDIR /app
 
-COPY main.go .
+COPY go.mod ./
+RUN go mod download
 
-RUN go build -ldflags="-s -w" -o relay
+COPY . .
+
+RUN go build -ldflags="-s -w" -o relay .
 
 FROM alpine:3.19
 
